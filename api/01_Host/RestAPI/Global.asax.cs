@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.WebApi;
+using Domain.Basic;
 namespace RestAPI
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -36,26 +37,24 @@ namespace RestAPI
             //手动注入
             // builder.RegisterInstance<Domain.Financial.Service.IMarketBehaviorService>(new Domain.Financial.Core.MarketBehaviorService());
 
-            //自动注入
-            //找到程序下的所有 引用DLL
+            //属性注入
+            builder.RegisterType<IDependency>().PropertiesAutowired();
+
+            //*自动注入
+            //*找到程序下的所有 引用DLL
             Assembly[] assemblies = System.IO.Directory.GetFiles(AppDomain.CurrentDomain.RelativeSearchPath, "*.dll")
                 .Select(m => Assembly.LoadFrom(m)).ToArray();
 
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-             .Where(t => !t.IsAbstract && typeof(ApiController)
-             .IsAssignableFrom(t));
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(t => typeof(ApiController).IsAssignableFrom(t) && !t.IsAbstract);
 
             //筛选符合类型的进行注册
             builder.RegisterAssemblyTypes(assemblies)
-                .Where(type => typeof(Domain.Basic.IDepend).IsAssignableFrom(type) && !type.IsAbstract)
+                .Where(type => typeof(IDependency).IsAssignableFrom(type) && !type.IsAbstract)
                 .AsSelf()   //自身服务，用于没有接口的类
                 .AsImplementedInterfaces()  //接口服务
                 .PropertiesAutowired()  //属性注入
                 .InstancePerLifetimeScope()    //保证生命周期基于请求
                 .InstancePerMatchingLifetimeScope(AutofacWebApiDependencyResolver.ApiRequestTag);
-
-
-
 
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);

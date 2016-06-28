@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Basic
 {
-    public interface IDepend
+    public interface IDependency
     {
     }
 }

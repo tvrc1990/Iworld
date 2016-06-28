@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Domain.Financial.Service
 {
 
-    public interface IMarketBehaviorRepository : IDepend
+    public interface IMarketBehaviorRepository : IDependency
     {
         IEnumerable<MarketInfo> Query(DateTime time, int interval);
     }
