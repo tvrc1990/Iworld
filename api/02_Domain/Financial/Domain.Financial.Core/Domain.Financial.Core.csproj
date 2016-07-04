@@ -44,10 +44,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Basic\Domain.Basic\Domain.Basic.csproj">
-      <Project>{145fa093-f8a0-4c6d-85c9-ce409cef2f73}</Project>
-      <Name>Domain.Basic</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain.Financial.Service\Domain.Financial.Service.csproj">
       <Project>{f46ec466-9e3d-4cbc-be15-65effe2a6a14}</Project>
       <Name>Domain.Financial.Service</Name>

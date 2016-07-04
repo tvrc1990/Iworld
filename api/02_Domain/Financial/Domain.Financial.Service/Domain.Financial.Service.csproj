@@ -46,12 +46,6 @@
     <Compile Include="Repository\IMarketBehavior.Repository.cs" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\..\Basic\Domain.Basic\Domain.Basic.csproj">
-      <Project>{145fa093-f8a0-4c6d-85c9-ce409cef2f73}</Project>
-      <Name>Domain.Basic</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

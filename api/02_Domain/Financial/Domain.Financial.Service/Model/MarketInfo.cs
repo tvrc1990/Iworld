@@ -18,7 +18,7 @@ namespace Domain.Financial.Model
 
         public decimal TotalTradingAmount { set; get; }
         public long TotalTradingVolume { set; get; }
-        public MarketStatus Status { set; get; }
+        public MarketStatus? Status { set; get; }
     }
 
     public enum MarketStatus

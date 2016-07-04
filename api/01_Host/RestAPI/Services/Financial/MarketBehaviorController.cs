@@ -12,25 +12,26 @@ namespace RestAPI.Services.Financial
     public class MarketBehaviorController : RestAPIController
     {
         IMarketBehaviorService marketBehaviorService = null;
-        IMarketBehaviorRepository marketBehaviorRepository = null;
-        public MarketBehaviorController(IMarketBehaviorService _marketBehaviorService, IMarketBehaviorRepository _marketBehaviorRepository)
-        {
-            this.marketBehaviorService = _marketBehaviorService;
-            this.marketBehaviorRepository = _marketBehaviorRepository;
-        }
-
-   
-        //public MarketBehaviorController(IMarketBehaviorService _marketBehaviorService)
+        //IMarketBehaviorRepository marketBehaviorRepository = null;
+        //public MarketBehaviorController(IMarketBehaviorService _marketBehaviorService, IMarketBehaviorRepository _marketBehaviorRepository)
         //{
         //    this.marketBehaviorService = _marketBehaviorService;
+        //    this.marketBehaviorRepository = _marketBehaviorRepository;
         //}
 
 
-        [HttpGet]
-        public IEnumerable<string> Get()
+        public MarketBehaviorController(IMarketBehaviorService _marketBehaviorService)
         {
-            return new string[] { "at", "ad" };
-            //return marketBehaviorService.Query(DateTime.Now,interval);
+            this.marketBehaviorService = _marketBehaviorService;
+        }
+
+
+        [HttpGet]
+        public IEnumerable<MarketInfo> Get()
+        {
+            var result= marketBehaviorService.Query(DateTime.Now, 1);
+   
+            return result;
         }
 
     }

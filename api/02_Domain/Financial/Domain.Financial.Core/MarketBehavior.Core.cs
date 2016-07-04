@@ -6,16 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Domain.Financial.Service;
+
 namespace Domain.Financial.Core
 {
+
     public class MarketBehaviorService : IMarketBehaviorService
     {
+        public IMarketBehaviorRepository MarketBehaviorRepository { set; get; }
         public IEnumerable<MarketInfo> Query(DateTime time, int interval)
         {
-            var result = new List<MarketInfo>(){
-                new MarketInfo(){ProductName="MarketBehavior 1"},
-                new MarketInfo(){ProductName="MarketBehavior 2"}
-            };
+            var result = MarketBehaviorRepository.Query(time, interval);
             return result;
         }
 
