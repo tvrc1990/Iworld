@@ -18,10 +18,10 @@ namespace RestAPI
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-
+           // GlobalConfiguration.Configuration.EnableCors();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
             new DependencyRegister().RegisterType();
         }
 

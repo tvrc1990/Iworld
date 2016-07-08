@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BF.Unity.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,37 +8,23 @@ using System.Web.Http;
 
 namespace RestAPI.Controllers
 {
-    public class DemoController : ApiController
+    public class DemoController : RestAPIController
     {
-        
 
-       
 
-        // GET api/values/5
-        public string Get(int id)
+        [HttpGet]
+        public Result InitRSA(string token)
         {
-            return "value";
+            Reply.Data = RSAHelper.InitRSA(token);
+            return Reply;
         }
 
         [HttpGet]
-        public string info(int id)
+        public Result Decrypt(string value, string token)
         {
-            return "demo1";
+            Reply.Data = value.Decrypt(token);
+            return Reply;
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-        }
     }
 }

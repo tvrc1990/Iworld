@@ -1,4 +1,5 @@
-﻿using Domain.Financial.Model;
+﻿using BF.Unity.Common;
+using Domain.Financial.Model;
 using Domain.Financial.Service;
 using System;
 using System.Collections.Generic;
@@ -29,8 +30,8 @@ namespace RestAPI.Services.Financial
         [HttpGet]
         public IEnumerable<MarketInfo> Get()
         {
-            var result= marketBehaviorService.Query(DateTime.Now, 1);
-   
+            var result = marketBehaviorService.Query(DateTime.Now, 1);
+
             return result;
         }
 
