@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/BigInt.js" type="text/javascript"></script>
+    <script src="Scripts/RSA.js" type="text/javascript"></script>
+    <script src="Scripts/Barrett.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            var token = $('#txt_Token').val();
+
+            $('#btn_Init_RSA').click(function () {
+
+                $.get("/demo/initrsa", token, function (reply) {
+                    console.log(reply);
+                }, "json");
+
+            });
+
+            $('#btn_Encrypted').click(function () {
+            });
+
+            $('#btn_Decrypt').click(function () {
+            });
+        });
+
+    </script>
+</head>
+<body>
+    //初始化生成公钥和私钥 公钥发回到客户端 私钥存储在服务端
+    <p>
+        <input id="txt_Token" type="text" value="default token" />
+        <input id="btn_Init_RSA" type="button" value="INIT RSA" />
+    </p>
+
+    //输入的内容
+    <p>
+        <input id="txt_Input" type="text" />
+    </p>
+
+    //客户端加密后的内容
+    <p>
+        <input id="btn_Encrypted" type="button" value="ENCRYPTED" />
+        <input id="txt_btn_Encrypted" type="text" />
+    </p>
+
+    //服务端解密返回的内容
+    <p>
+        <input id="btn_Decrypt" type="button" value="DECRYPT" />
+        <input id="txt_Output" type="text" />
+    </p>
+
+</body>
+</html>

@@ -15,7 +15,8 @@ namespace RestAPI.Controllers
         [HttpGet]
         public Result InitRSA(string token)
         {
-            Reply.Data = RSAHelper.InitRSA(token);
+            var result=RSAHelper.InitRSA(token);
+            Reply.Data = result;
             return Reply;
         }
 

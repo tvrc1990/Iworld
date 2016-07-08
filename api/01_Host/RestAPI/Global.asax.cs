@@ -18,7 +18,7 @@ namespace RestAPI
     {
         protected void Application_Start()
         {
-           // GlobalConfiguration.Configuration.EnableCors();
+            //GlobalConfiguration.Configuration.EnableCors();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
