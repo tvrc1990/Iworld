@@ -24,6 +24,7 @@ namespace MvcApplication3.Controllers
         // POST api/values
         public void Post([FromBody]string value)
         {
+            var r = value;
         }
 
         // PUT api/values/5

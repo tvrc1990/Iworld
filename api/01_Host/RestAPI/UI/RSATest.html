@@ -9,21 +9,39 @@
     <script type="text/javascript">
 
         $(function () {
+            var host = "http://localhost:3760/";
             var token = $('#txt_Token').val();
 
             $('#btn_Init_RSA').click(function () {
 
-                $.get("/demo/initrsa", token, function (reply) {
-                    console.log(reply);
+                $.get(host + "Demo", { token: token }, function (reply) {
+                    var result = JSON.parse(reply).Data;
+                    window.localStorage["PublicKeyModulus"] = result.PublicKeyModulus;
+                    window.localStorage["PublicKeyExponent"] = result.PublicKeyExponent;
                 }, "json");
 
             });
 
             $('#btn_Encrypted').click(function () {
+                setMaxDigits(129);
+                var key = new RSAKeyPair(window.localStorage["PublicKeyExponent"], "", window.localStorage["PublicKeyModulus"]);
+                var temp = encryptedString(key, $('#txt_Input').val());
+                $("#txt_Encrypted").val(temp);
+
             });
 
             $('#btn_Decrypt').click(function () {
+
+                var v = $("#txt_Encrypted").val();
+                $.post(host + "Demo", { value: v, token: token }, function (reply) {
+                    var result = JSON.parse(reply).Data;
+                    $('#txt_Output').val(result);
+                }, "json");
+
+
+
             });
+
         });
 
     </script>
@@ -31,7 +49,7 @@
 <body>
     //初始化生成公钥和私钥 公钥发回到客户端 私钥存储在服务端
     <p>
-        <input id="txt_Token" type="text" value="default token" />
+        <input id="txt_Token" type="text" value="default" />
         <input id="btn_Init_RSA" type="button" value="INIT RSA" />
     </p>
 
@@ -43,7 +61,7 @@
     //客户端加密后的内容
     <p>
         <input id="btn_Encrypted" type="button" value="ENCRYPTED" />
-        <input id="txt_btn_Encrypted" type="text" />
+        <input id="txt_Encrypted" type="text" />
     </p>
 
     //服务端解密返回的内容

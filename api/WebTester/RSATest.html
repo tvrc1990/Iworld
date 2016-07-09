@@ -14,7 +14,7 @@
 
             $('#btn_Init_RSA').click(function () {
 
-                $.get(host + "/demo/initrsa", token, function (reply) {
+                $.get(host + "Demo?token=sdfsf", null, function (reply) {
                     console.log(reply);
                 }, "json");
 
@@ -32,7 +32,7 @@
 <body>
     //初始化生成公钥和私钥 公钥发回到客户端 私钥存储在服务端
     <p>
-        <input id="txt_Token" type="text" value="default token" />
+        <input id="txt_Token" type="text" value="default" />
         <input id="btn_Init_RSA" type="button" value="INIT RSA" />
     </p>
 

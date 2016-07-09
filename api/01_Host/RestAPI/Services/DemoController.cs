@@ -1,4 +1,5 @@
 ﻿using BF.Unity.Common;
+using BF.Unity.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,23 +9,32 @@ using System.Web.Http;
 
 namespace RestAPI.Controllers
 {
+    public class A
+    {
+        public string value { set; get; }
+        public string token { set; get; }
+    }
     public class DemoController : RestAPIController
     {
 
-
         [HttpGet]
-        public Result InitRSA(string token)
+        public object InitRSA(string token)
         {
-            var result=RSAHelper.InitRSA(token);
-            Reply.Data = result;
-            return Reply;
+            var result = RSAHelper.InitRSA(token);
+
+            Result.Data = new { PublicKeyModulus = result.PublicKeyModulus, PublicKeyExponent = result.PublicKeyExponent };
+
+            return Result.ToJson();//Reply();
         }
 
-        [HttpGet]
-        public Result Decrypt(string value, string token)
+        [HttpPost]
+        public object Den(A a)
         {
-            Reply.Data = value.Decrypt(token);
-            return Reply;
+            var result = a.value.Decrypt(a.token);
+
+            Result.Data = result;
+
+            return Result.ToJson();
         }
 
     }
