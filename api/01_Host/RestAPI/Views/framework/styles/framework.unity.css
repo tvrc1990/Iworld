@@ -1,0 +1,79 @@
+﻿body {
+    font: normal 100% Helvetica, Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+img, object {
+    max-width: 100%;
+}
+
+img {
+    -ms-interpolation-mode: bicubic;
+}
+
+input {
+border:1px;
+
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+small {
+    font-size: 0.875em;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.abs {
+    position: absolute;
+}
+
+.over-hide {
+    overflow: hidden;
+}
+
+.show {
+    display: block;
+}
+
+.hiden {
+    display: none;
+}
+
+.bgc-green {
+    background-color: #1abc9c;
+}
+
+.bgc-white {
+    background-color: #eff0f2;
+}
+
+.bgc-blue {
+    background-color: #65CEA7;
+}
+
+.transparent {
+    background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0 !important; /*实现FF背景透明，文字不透明*/
+    filter: Alpha(opacity=80);
+    background: #fff; /*实现IE背景透明*/
+}
+
+.cur {
+    cursor:pointer;
+}
+
+/*文字换行*/
+.warp{
+  word-break: break-all; word-wrap:break-word
+}

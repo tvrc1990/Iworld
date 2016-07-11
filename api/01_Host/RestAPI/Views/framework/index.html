@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+
+    <link href="styles/framework.unity.css" rel="stylesheet" />
+    <link href="styles/framework.layout.css" rel="stylesheet" />
+    <link href="styles/framework.theme.css" rel="stylesheet" />
+
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="styles/framework.layout.css" rel="stylesheet" />
+    <link href="styles/framework.elment.css" rel="stylesheet" />
+
+    <link href="plug-in/iCheck/icheck.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+
+    <!--顶部横向导航-->
+    <div id="main_tools">
+        <div class="tools-box ">
+            <div class="current-user cur fr">
+                <i class="fa fa-user"></i>
+                <span>user name</span>
+                <i class="fa fa-caret-down"></i>
+            </div>
+        </div>
+        <div class="current-user-content hiden">
+            <div class="current-name">Dep User Name</div>
+            <div class="current-face"></div>
+            <div class="current-time">2016-04-29 | 星期一 </div>
+            <div class="loginout cur">注销</div>
+        </div>
+    </div>
+
+    <!-- 左侧菜单-->
+    <div ms-controller="menuCtrl" id="main_menu" class="bgc-white">
+
+        <div class="menu-head bgc-green"></div>
+        <div class="menu-tree">
+            <ul ms-html="menuTemplate "></ul>
+        </div>
+
+    </div>
+
+
+    <!--右侧正文-->
+    <div id="main_container" ms-controller="containerCtrl">
+
+        <!--菜单对应的窗口-->
+        <div class="container-box" data-repeat-rendered="renderer" ms-repeat="containerArray">
+
+            <!--标题-->
+            <div class="container-tools bgc-blue over-hide" ms-mousedown="drag()" ms-dblclick="changeSize($index,this)">
+
+                <div class="container-title fl" title=" {{el.text}}" ms-mousedown="drag()">{{el.text}}</div>
+
+                <!--  窗口工具栏-->
+                <div class="fa fa-bars option-box cur fr" ms-mouseenter="operation()">
+                    <ul class="container-tool-box">
+                        <li ms-click="close($index)">关闭</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!--内容容器-->
+            <div class="container-content bgc-white" ms-mousedown="focus()" ms-include-src="{{el.href}}"></div>
+
+        </div>
+
+
+    </div>
+
+    <!--已打开的菜单-->
+	<!--<div id="main_task_tools">
+	   <div class="task-item fl">A</div>
+	   <div class="task-item fl">B</div>
+           <div class="task-item fl">C</div>
+	</div>-->
+	
+
+
+    <script src="scripts/lib/jquery.main.js"></script>
+    <script src="scripts/lib/bootstrap.js"></script>
+
+    <script type="text/javascript" src="scripts/app/framework.unity.js"></script>
+    <script src="plug-in/iCheck/icheck.js"></script>
+
+
+    <script src="scripts/lib/require.js" data-main="scripts/app.js"></script>
+
+
+</body>
+<!--inspinia_v2_2-->
+</html>

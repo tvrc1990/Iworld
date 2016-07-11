@@ -1,0 +1,120 @@
+﻿body {
+    font-family: 'FontAwesome';
+    font-size:14px;
+    background: url("../images/bg.jpg") no-repeat -230px -100px;
+}
+/*Tools Start*/
+#main_tools {
+    background-color: #3c8dbc;
+}
+
+#main_tools .tools-box .current-user  {
+    color: white;
+}
+
+#main_tools .tools-box .current-user span {
+    padding-right:5px;
+}
+
+#main_tools> .current-user-content
+{
+  background-color:#65CEA7; 
+}
+
+#main_tools > .current-user-content .current-name{
+    color:white;
+    font-weight:bold;
+}
+#main_tools > .current-user-content .current-face {
+    background-color:white;
+}
+
+#main_tools > .current-user-content .current-time{
+    color:white;
+    font-size:10px;
+    font-weight:bold;
+}
+
+#main_tools > .current-user-content .loginout{
+    color:white;
+    background-color:#425063;
+    font-size:10px;
+}
+/*Tools End*/
+
+
+/*Menu Start*/
+#main_menu {  
+    background-color:#425063;
+}
+
+
+
+.menu-tree ul li {
+    font-size:15px;
+    color:white;
+}
+
+.menu-tree ul li:hover
+{
+    background-color:#353f4f;  
+    color:#65CEA7;
+}
+
+.menu-tree > ul > li:hover span>i{
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Safari */
+    transform: rotate(270deg); /* Standard syntax */
+}
+
+
+
+.menu-tree li ul {
+    background-color:#425063;
+}
+
+/*Menu End*/
+
+
+
+
+#main_container> .container-box {
+    background-color: #5AB6DF;
+}
+
+#main_container > .container-box .container-tools {
+    background-color:#5AB6DF;
+}
+
+
+#main_container > .container-box > .container-tools> .option-box > .container-tool-box{
+    background-color: #425063;
+}
+
+#main_container > .container-box > .container-tools> .option-box   >ul > li {
+    color:white;
+    font-size:11px;
+}
+
+#main_container > .container-box > .container-tools > .option-box > ul > li:hover {
+    background-color:#353f4f;  
+    color:#65CEA7;
+}
+
+#main_container > .container-box > .container-tools > .option-box  > ul > li :hover{
+    background-color: #1abc9c;
+}
+
+/*Content Start*/
+
+
+/*Task tools Start*/
+#main_task_tools{
+	background-color:#425063;
+   
+}
+
+#main_task_tools> .task-item{
+ background-color:#1abc9c;
+}
+/*Task tools End*/

@@ -1,0 +1,257 @@
+﻿body {
+    margin: 0px;
+	padding:0px;
+    width: 100%;
+}
+/*Tools Start*/
+#main_tools {
+    height: 4%;
+    min-height:25px;
+    width: 100%;
+    position: fixed;
+	z-index:100;
+}
+#main_tools .tools-box
+{
+  height: 100%;
+}
+#main_tools .tools-box .current-user  {
+    height: 100%;
+	width: 150px;
+	text-align:center;
+    line-height:25px;
+    padding-top: 0.2%;
+}
+
+#main_tools .tools-box .current-user span {
+    padding-right:5px;
+}
+
+#main_tools> .current-user-content
+{
+  width:15%;
+  height:18%;
+  min-width: 150px;
+  min-height:200px;
+  position: absolute;
+  right:0;
+  border-radius: 2px;
+  margin-top: 2px;
+  
+}
+
+#main_tools > .current-user-content .current-name{
+    width:100%;
+    min-height:40px;
+    line-height:40px;
+    text-align:center;
+}
+#main_tools > .current-user-content .current-face {
+    width:35%;
+    height :40%;
+    min-width: 80px;
+    min-height:80px;
+    margin:5% 0px 5% 0px;
+    margin:0px auto;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+
+#main_tools > .current-user-content .current-time{
+    width:100%;
+    min-height:40px;
+    line-height:40px;
+    text-align:center;
+
+}
+
+#main_tools > .current-user-content .loginout{
+    width:100%;
+    margin-top:15px;
+    min-height:25px;
+    line-height:25px;
+    text-align:center;
+    text-align:center;
+    border-bottom-left-radius:2px;
+    border-bottom-right-radius:2px;
+
+}
+/*Tools End*/
+
+
+/*Menu Start*/
+#main_menu {  
+    height: 100%;
+    width: 12%;
+    position: fixed;
+    z-index:100;
+	bottom:0;
+    padding-top:4%;
+}
+
+#main_menu .menu-head {
+    height: 0%;
+    width: 100%;
+}
+
+.menu-tree ul {
+    margin: 0px;
+    padding-left: 0px;
+    width: 100%;
+    padding-top: 10%;
+    z-index: 90;
+    list-style-type: none;
+}
+
+.menu-tree ul li {
+    width: 100%;
+    position: relative;
+    padding-left:10px;
+    height:45px;
+    line-height:45px;
+    cursor:pointer;
+}
+
+
+
+.menu-tree ul li span {
+    cursor: pointer;
+    width:100%;
+
+}
+
+.menu-tree ul li span i {
+    line-height: 45px;
+    padding-right: 5px;
+}
+
+.menu-tree li:hover > ul {
+    display: block;
+}
+
+.menu-tree li ul {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    display: none;
+    list-style-type: none;
+    border-radius:3px;
+    margin-left:1px;
+    padding: 1px 0px 1px 0px;
+}
+
+.menu-tree li.expand > span {
+    /*padding-right: 10px;*/
+    /*background: transparent url(data:image/png;base64,R0lGODlhAwAQAIABAAAAAP///yH5BAEAAAEALAAAAAADABAAAAIKjI8JBtv/wko0FQA7) no-repeat right center;*/
+}
+
+.menu-tree > ul > li.expand > span {
+    /*padding-right: 10px;*/
+    /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAADCAYAAACwAX77AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAaSURBVBhXY2BgYPiPAwOFMSXBgjAA0wnmAwASVQv19UVKmwAAAABJRU5ErkJggg==);*/
+}
+
+/*Menu End*/
+
+
+/*Content Start*/
+#main_container {
+    height: 96%;
+    width: 88%;
+    top: 4%;
+    position: fixed;
+    left: 12%;
+    z-index: 0;
+}
+
+#main_container> .container-box {
+    max-width:88%;
+    min-width:50%;
+    width:100%;
+    height:96%;
+    position:fixed; 
+    /*border:2px solid #3498db;*/
+    border-radius: 3px;
+    overflow:hidden;
+    padding:0px 4px 4px 4px;
+
+}
+
+#main_container > .container-box >.container-tools {
+    height:4%;
+    min-height:25px;
+    position: static;
+}
+
+#main_container> .container-box > .container-tools >.container-title {
+    height:100%;
+    line-height:25px;
+    width:100%;
+	position:relative
+}
+
+#main_container > .container-box > .container-tools> .option-box 
+{
+	text-align:center;
+	width:40px;
+	display:block;
+    height:auto;
+    min-height:25px;
+    position:absolute;
+    right:0px;
+    padding:0.5%;
+}
+
+
+#main_container > .container-box > .container-tools> .option-box > .container-tool-box{
+
+    width:100%;
+    height:auto;
+    padding:4% 1px 1px 1px;
+    border-radius: 3px;
+    display:none;
+    position: absolute;
+    right:1px;
+    z-index:80;
+}
+
+#main_container > .container-box > .container-tools> .option-box   >ul > li {
+    list-style-type:none;
+    line-height:22px;
+    cursor:pointer;
+}
+
+
+
+#main_container > .container-box > .container-content {
+    height:96%;
+    width:100%;
+    overflow:auto;
+    left:4px;
+    bottom:4px;
+    right:4px;
+}
+/*Content Start*/
+
+
+/*Task tools Start*/
+#main_task_tools{
+  	height:60%;
+    width: auto;
+    bottom: 0px;
+    position: fixed;
+    /*left: 12%;*/
+    right:0;
+    z-index: 0;
+	padding-right:0.9px;
+   
+}
+
+#main_task_tools> .task-item{
+ width:100px;
+ min-height:30px;
+ line-height:30px;
+ margin:2px 0 3px 0.5%;
+}
+/*Task tools End*/
