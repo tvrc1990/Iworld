@@ -12,26 +12,25 @@ namespace RestAPI
     public class RestAPIController : ApiController
     {
 
-        public Result Result { set; get; }
+        public Result Resopnse { set; get; }
+
+        public Result Reply
+        {
+            get
+            {
+                //Resopnse.Data = Resopnse.Data.ToString();
+                return Resopnse;
+            }
+        }
 
         public RestAPIController()
         {
-            Result = new Result() { Code = MessageType.Successful.GetValue().ToString(), Message = MessageType.Successful.GetName<MessageType>() };
+            Resopnse = new Result() { Code = MessageType.Successful.GetValue().ToString(), Message = MessageType.Successful.GetName<MessageType>() };
         }
 
-        //public object Reply()
-        //{
-        //    return Result.ToJson();
-        //}
+
 
     }
 
-
-    public enum MessageType
-    {
-        Successful = 200,
-        Failure = 500,
-        Warning = 201
-    }
 
 }

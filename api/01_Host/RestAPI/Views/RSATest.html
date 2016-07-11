@@ -15,7 +15,7 @@
             $('#btn_Init_RSA').click(function () {
 
                 $.get(host + "Demo", { token: token }, function (reply) {
-                    var result = JSON.parse(reply).Data;
+                    var result = reply.Data;
                     window.localStorage["PublicKeyModulus"] = result.PublicKeyModulus;
                     window.localStorage["PublicKeyExponent"] = result.PublicKeyExponent;
                 }, "json");
@@ -34,7 +34,7 @@
 
                 var v = $("#txt_Encrypted").val();
                 $.post(host + "Demo", { value: v, token: token }, function (reply) {
-                    var result = JSON.parse(reply).Data;
+                    var result = reply.Data;
                     $('#txt_Output').val(result);
                 }, "json");
 

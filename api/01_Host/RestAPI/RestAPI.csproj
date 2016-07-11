@@ -40,9 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
+      <HintPath>..\..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Autofac.Configuration">
       <HintPath>..\..\packages\Autofac.Configuration.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
@@ -51,8 +51,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Autofac.WebApi.3.1.0\lib\net40\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="BF.Unity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="BF.Core.Cache">
+      <HintPath>..\..\06_ReferenceLib\framework\BF.Core.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="BF.Unity">
       <HintPath>..\..\06_ReferenceLib\framework\BF.Unity.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -120,7 +122,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RestAPIController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="App_Start\RSAHelper.cs" />
     <Compile Include="Services\DemoController.cs" />
     <Compile Include="Services\Financial\MarketBehaviorController.cs" />
     <Compile Include="Services\ValuesController.cs" />
@@ -131,11 +132,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="UI\RSATest.html" />
-    <Content Include="UI\Scripts\Barrett.js" />
-    <Content Include="UI\Scripts\BigInt.js" />
-    <Content Include="UI\Scripts\jquery-1.4.1.min.js" />
-    <Content Include="UI\Scripts\RSA.js" />
+    <Content Include="Views\RSATest.html" />
+    <Content Include="Views\Scripts\Barrett.js" />
+    <Content Include="Views\Scripts\BigInt.js" />
+    <Content Include="Views\Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Views\Scripts\RSA.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -160,6 +161,9 @@
       <Project>{4cbea8d3-8477-4042-be03-5fe85cc30ff9}</Project>
       <Name>DataAccess.Financial.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

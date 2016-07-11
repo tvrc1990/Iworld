@@ -1,5 +1,7 @@
 ﻿using BF.Unity.Common;
 using BF.Unity.Extension;
+using BF.Unity.Helper;
+using BF.Core.Cache;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Web.Http;
 
 namespace RestAPI.Controllers
 {
-    public class A
+    public class DecryptInfo
     {
         public string value { set; get; }
         public string token { set; get; }
@@ -18,23 +20,22 @@ namespace RestAPI.Controllers
     {
 
         [HttpGet]
-        public object InitRSA(string token)
+        public Result InitRSA(string token)
         {
             var result = RSAHelper.InitRSA(token);
+            CacheProvider<string>.MemoryCache.Set(token, result.PrivateKey);
+            Resopnse.Data = new { PublicKeyModulus = result.PublicKeyModulus, PublicKeyExponent = result.PublicKeyExponent };
 
-            Result.Data = new { PublicKeyModulus = result.PublicKeyModulus, PublicKeyExponent = result.PublicKeyExponent };
-
-            return Result.ToJson();//Reply();
+            return Reply;
         }
 
         [HttpPost]
-        public object Den(A a)
+        public Result RSADecrypt(DecryptInfo info)
         {
-            var result = a.value.Decrypt(a.token);
-
-            Result.Data = result;
-
-            return Result.ToJson();
+            var privateKey = CacheProvider<string>.MemoryCache.Get(info.token);
+            var result = info.value.Decrypt(privateKey);
+            Resopnse.Data = result;
+            return Reply;
         }
 
     }

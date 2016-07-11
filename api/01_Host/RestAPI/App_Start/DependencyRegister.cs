@@ -31,7 +31,7 @@ namespace RestAPI.App_Start
 
             //筛选符合类型的进行注册
             builder.RegisterAssemblyTypes(assemblies)
-                .Where(type => type.Name.EndsWith("Service") && !type.IsAbstract)
+                .Where(type => (type.Name.EndsWith("Service") || type.Name.EndsWith("DataAccess")) && !type.IsAbstract)
                 .AsSelf()   //自身服务，用于没有接口的类
                 .AsImplementedInterfaces()  //接口服务
                 .PropertiesAutowired()  //属性注入
@@ -50,7 +50,8 @@ namespace RestAPI.App_Start
 
         private void Financial_Regist()
         {
-            builder.RegisterType<MarketBehaviorDataAccess>().As<IMarketBehaviorRepository>().PropertiesAutowired();
+            //builder.RegisterType<MarketBehaviorDataAccess>();
+            //builder.RegisterType<MarketBehaviorDataAccess>().As<IMarketBehaviorRepository>().PropertiesAutowired();
         }
     }
 }
